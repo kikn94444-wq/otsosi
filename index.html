@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>18+ Контент</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: #0a0a0a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Arial Black', sans-serif;
+  color: #fff;
+  overflow: hidden;
+}
+.container {text-align:center;}
+button {
+  font-size: 28px;
+  padding: 20px 50px;
+  margin: 20px;
+  background: #111;
+  color: #fff;
+  border: 3px solid #ff4500;
+  border-radius: 12px;
+  cursor: pointer;
+  position: relative;
+  text-shadow: 0 0 5px #ff4500;
+  animation: glow 1.5s infinite alternate;
+  transition: transform 0.2s ease;
+}
+button:active {transform: scale(0.9);}
+.hidden {display: none;}
+#sad {
+  margin-top: 40px;
+  font-size: 32px;
+  color: #ff0000;
+  text-shadow: 0 0 10px #ff0000;
+  opacity: 0.8;
+  animation: glow 1.5s infinite alternate;
+}
+.tag {
+  font-size: 32px;
+  color: #ff8c00;
+  text-decoration: underline;
+  margin-bottom: 30px;
+  display: inline-block;
+  cursor: pointer;
+  animation: glow 1.5s infinite alternate;
+}
+#content {opacity: 0; transition: opacity 1s ease;}
+@keyframes glow {
+  0% {text-shadow: 0 0 5px #ff4500;}
+  50% {text-shadow: 0 0 20px #ff6347;}
+  100% {text-shadow: 0 0 10px #ff4500;}
+}
+</style>
+</head>
+<body>
+
+<div class="container" id="gate">
+  <button id="yesBtn">Мне есть 18</button>
+  <button id="noBtn">Мне нет 18</button>
+  <div id="sad" class="hidden">жаль</div>
+</div>
+
+<div class="container hidden" id="content">
+  <div class="tag" onclick="window.open('https://t.me/haperip','_blank')">@haperip</div>
+  <p style="font-size:28px; margin-bottom:20px;">Добро пожаловать</p>
+  <audio id="music" autoplay>
+    <source src="https://drive.google.com/uc?export=download&id=1n8oE7nkdAnphve2AcBbtXXsWXnUUmuu3" type="audio/mpeg">
+  </audio>
+</div>
+
+<script>
+const yesBtn = document.getElementById('yesBtn');
+const noBtn = document.getElementById('noBtn');
+const sad = document.getElementById('sad');
+const gate = document.getElementById('gate');
+const content = document.getElementById('content');
+const music = document.getElementById('music');
+
+noBtn.addEventListener('mouseenter', () => {
+  const x = Math.random() * (window.innerWidth-200);
+  const y = Math.random() * (window.innerHeight-100);
+  noBtn.style.position = 'absolute';
+  noBtn.style.left = x+'px';
+  noBtn.style.top = y+'px';
+});
+
+noBtn.addEventListener('click', () => {
+  sad.classList.remove('hidden');
+});
+
+yesBtn.addEventListener('click', () => {
+  gate.classList.add('hidden');
+  content.classList.remove('hidden');
+  setTimeout(()=>content.style.opacity=1,50);
+  music.volume=0;
+  music.play();
+  let vol=0;
+  const fade=setInterval(()=>{
+    if(vol<1){vol+=0.05; music.volume=vol;}
+    else clearInterval(fade);
+  },100);
+});
+</script>
+
+</body>
+</html>
+[Ссылка]
+Google Диск: вход в систему
+http://drive.google.com/uc?export=download&id=1n8oE7nkdAnphve2AcBbtXXsWXnUUmuu3
